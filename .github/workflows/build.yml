@@ -1,4 +1,4 @@
-name: Build GifToSyphon with Custom API Key 2
+name: Build GifToSyphon with Custom API Key
 
 on:
   push:
@@ -15,17 +15,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install Dependencies
         run: |
-          # Install required tools and dependencies
           brew install cmake
           brew install sdl2  # if SDL2 is a dependency for GifToSyphon
 
       - name: Inject API Key
         run: |
-          # Replace placeholder in code with your API key
           sed -i '' "s/YOUR_API_KEY_PLACEHOLDER/${{ secrets.API_KEY }}/g" AppDelegate.m
 
       - name: Build GifToSyphon
@@ -46,12 +44,4 @@ jobs:
         with:
           name: GifToSyphon_Build
           path: build/GifToSyphon_Build.zip
-          on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
 
