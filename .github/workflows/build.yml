@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual trigger from Actions tab
 
 jobs:
   build:
@@ -44,4 +44,3 @@ jobs:
         with:
           name: GifToSyphon_Build
           path: build/GifToSyphon_Build.zip
-
