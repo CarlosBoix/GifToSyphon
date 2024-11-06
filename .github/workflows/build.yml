@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:  # Allows manual trigger from Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          brew install cmake
+          brew install --formula cmake  # Specify as a formula to avoid the warning
           brew install sdl2  # if SDL2 is a dependency for GifToSyphon
 
       - name: Inject API Key
@@ -40,7 +40,7 @@ jobs:
 
       - name: Upload GifToSyphon Build
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # Updated to v4
         with:
           name: GifToSyphon_Build
           path: build/GifToSyphon_Build.zip
