@@ -19,12 +19,12 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          brew install --formula cmake  # Specify as a formula to avoid the warning
+          brew install --formula cmake
           brew install sdl2  # if SDL2 is a dependency for GifToSyphon
 
       - name: Inject API Key
         run: |
-          sed -i '' "s/YOUR_API_KEY_PLACEHOLDER/${{ secrets.API_KEY }}/g" AppDelegate.m
+          sed -i '' "s/YOUR_API_KEY_PLACEHOLDER/${{ secrets.API_KEY }}/g" GifToSyphon/AppDelegate.m
 
       - name: Build GifToSyphon
         run: |
@@ -40,7 +40,7 @@ jobs:
 
       - name: Upload GifToSyphon Build
         if: success()
-        uses: actions/upload-artifact@v4  # Updated to v4
+        uses: actions/upload-artifact@v3
         with:
           name: GifToSyphon_Build
           path: build/GifToSyphon_Build.zip
