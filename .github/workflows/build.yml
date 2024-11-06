@@ -46,3 +46,12 @@ jobs:
         with:
           name: GifToSyphon_Build
           path: build/GifToSyphon_Build.zip
+          on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
