@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  GifToSyphon
 //
-//  Created by David Lublin on 2/10/15.
+//  Created by David Lublin on 2/10/15. Updated on 2024/11/06 by Carlos Boix
 //  Copyright (c) 2015 VIDVOX. All rights reserved.
 //
 
@@ -334,7 +334,7 @@
 	
 	//	note that the term can be nil, just do a search all
 	if ((term == nil) || ([term length] < 1))	{
-		searchAddress = [NSString stringWithFormat:@"https://api.giphy.com/v1/gifs/random?api_key=%@",GIFToSyphonGiphyAPIKey];
+		searchAddress = [NSString stringWithFormat:@"https://api.giphy.com/v1/gifs/random?api_key=%@", @"YOUR_API_KEY_PLACEHOLDER"];
 	}
 	else	{
 		NSString *adjustedSearchString = [term stringByReplacingOccurrencesOfString:@" " withString:@"+"];
