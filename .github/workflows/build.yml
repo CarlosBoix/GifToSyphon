@@ -18,27 +18,28 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          # Install required tools and dependencies
           brew install cmake
           brew install sdl2  # if SDL2 is a dependency for GifToSyphon
 
       - name: Inject API Key
         run: |
-          # Replace placeholder in code with your API key
-          sed -i '' "s/YOUR_API_KEY_PLACEHOLDER/${{ secrets.API_KEY }}/g" src/config.h  # Adjust path if necessary
+          sed -i '' "s/YOUR_API_KEY_PLACEHOLDER/${{ secrets.API_KEY }}/g" AppDelegate.m
 
       - name: Build GifToSyphon
         run: |
           mkdir build
           cd build
-          cmake ..  # Generate makefiles
-          make      # Build the project
+          cmake ..
+          make
+
+      - name: Zip the Application
+        run: |
+          cd build
+          zip -r GifToSyphon_Build.zip GifToSyphon.app
 
       - name: Upload GifToSyphon Build
         if: success()
         uses: actions/upload-artifact@v2
         with:
           name: GifToSyphon_Build
-          path: build/GifToSyphon.app  # Adjust path to match the app output location
-
-
+          path: build/GifToSyphon_Build.zip
