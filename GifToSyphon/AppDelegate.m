@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  GifToSyphon
 //
-//  Created by David Lublin on 2/10/15. Updated on 2024/11/06 by Carlos Boix
+//  Created by David Lublin on 2/10/15. Updated on 2024/11/06 by Carlos Boixx
 //  Copyright (c) 2015 VIDVOX. All rights reserved.
 //
 
