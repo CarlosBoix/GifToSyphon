@@ -28,14 +28,11 @@ jobs:
 
       - name: Build GifToSyphon
         run: |
-          mkdir build
-          cd build
-          cmake ..  # Generate makefiles
-          make      # Build the project
+          xcodebuild -project GifToSyphon.xcodeproj -scheme GifToSyphon -configuration Release -derivedDataPath build
 
       - name: Zip the Application
         run: |
-          cd build
+          cd build/Build/Products/Release
           zip -r GifToSyphon_Build.zip GifToSyphon.app
 
       - name: Upload GifToSyphon Build
@@ -43,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: GifToSyphon_Build
-          path: build/GifToSyphon_Build.zip
+          path: build/Build/Products/Release/GifToSyphon_Build.zip
