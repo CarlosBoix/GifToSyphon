@@ -1,4 +1,4 @@
-name: Build GifToSyphon with Custom API Key
+name: Build GifToSyphon with Custom API Key 2
 
 on:
   push:
